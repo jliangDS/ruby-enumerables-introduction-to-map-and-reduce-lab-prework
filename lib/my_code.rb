@@ -9,8 +9,14 @@ def map_to_negativize(array)
   return negativized_array
 end
 
-def map_to_no_change(array)
-  return array
+def map_to_no_change(source_array)
+  new = []
+  i = 0
+  while i < source_array.length do
+    new.push(source_array[i])
+    i += 1
+  end
+  return new 
 end
 
 def map_to_double(array)
@@ -44,25 +50,19 @@ running_total = starting_point
 end
 
 def reduce_to_all_true(source_array)
-i = 0
+  i = 0
   while i < source_array.length do
-    if source_array[i]
-      i += 1
-    else
-      return false
-    end
+    return false if !source_array[i]
+    i += 1
   end
   return true
 end
 
 def reduce_to_any_true(source_array)
-i = 0
-  while i< source_array.length do
-    if source_array[i]
-      return true
-    else
-      i += 1
-    end
+  i = 0
+  while i < source_array.length do
+    return true if source_array[i]
+    i += 1
   end
-return false
+  return false
 end
